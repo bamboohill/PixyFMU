@@ -82,7 +82,7 @@ px4-v1: $(BUILDROOT)/make.flags CHECK_MODULES $(MAVLINK_HEADERS) $(PX4_ROOT)/Arc
 	$(RULEHDR)
 	$(v) cp $(PX4_V1_CONFIG_FILE) $(PX4_ROOT)/makefiles/nuttx/
 	$(v) $(PX4_MAKE) px4fmu-v1_APM
-	$(v) arm-none-eabi-size $(PX4_ROOT)/Build/px4fmu-v1_APM.build/firmware.elf
+	#$(v) arm-none-eabi-size $(PX4_ROOT)/Build/px4fmu-v1_APM.build/firmware.elf
 	$(v) cp $(PX4_ROOT)/Images/px4fmu-v1_APM.px4 $(SKETCH)-v1.px4
 	$(v) $(SKETCHBOOK)/Tools/scripts/add_git_hashes.py $(HASHADDER_FLAGS) "$(SKETCH)-v1.px4" "$(SKETCH)-v1.px4"
 	$(v) echo "PX4 $(SKETCH) Firmware is in $(SKETCH)-v1.px4"
@@ -91,7 +91,7 @@ px4-v2: $(BUILDROOT)/make.flags CHECK_MODULES $(MAVLINK_HEADERS) $(PX4_ROOT)/Arc
 	$(RULEHDR)
 	$(v) cp $(PX4_V2_CONFIG_FILE) $(PX4_ROOT)/makefiles/nuttx/
 	$(PX4_MAKE) px4fmu-v2_APM
-	$(v) arm-none-eabi-size $(PX4_ROOT)/Build/px4fmu-v2_APM.build/firmware.elf
+	#$(v) arm-none-eabi-size $(PX4_ROOT)/Build/px4fmu-v2_APM.build/firmware.elf
 	$(v) cp $(PX4_ROOT)/Images/px4fmu-v2_APM.px4 $(SKETCH)-v2.px4
 	$(v) $(SKETCHBOOK)/Tools/scripts/add_git_hashes.py $(HASHADDER_FLAGS) "$(SKETCH)-v2.px4" "$(SKETCH)-v2.px4"
 	$(v) echo "PX4 $(SKETCH) Firmware is in $(SKETCH)-v2.px4"
@@ -100,7 +100,7 @@ px4-v4: $(BUILDROOT)/make.flags CHECK_MODULES $(MAVLINK_HEADERS) $(PX4_ROOT)/Arc
 	$(RULEHDR)
 	$(v) cp $(PX4_V4_CONFIG_FILE) $(PX4_ROOT)/makefiles/nuttx/
 	$(PX4_MAKE) px4fmu-v4_APM
-	$(v) arm-none-eabi-size $(PX4_ROOT)/Build/px4fmu-v4_APM.build/firmware.elf
+	#$(v) arm-none-eabi-size $(PX4_ROOT)/Build/px4fmu-v4_APM.build/firmware.elf
 	$(v) cp $(PX4_ROOT)/Images/px4fmu-v4_APM.px4 $(SKETCH)-v4.px4
 	$(v) mkdir -p $(MK_DIR)/PX4/ROMFS/bootloader/
 	$(v) cp $(SKETCHBOOK)/mk/PX4/bootloader/px4fmuv4_bl.bin $(MK_DIR)/PX4/ROMFS/bootloader/fmu_bl.bin

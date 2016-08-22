@@ -31,6 +31,7 @@
 #include "ToshibaLED_PX4.h"
 #include "VRBoard_LED.h"
 #include "DiscreteRGBLed.h"
+#include "PixRacerLED.h"
 
 // table of user settable parameters
 const AP_Param::GroupInfo AP_Notify::var_info[] = {
@@ -70,8 +71,12 @@ struct AP_Notify::notify_flags_type AP_Notify::flags;
 struct AP_Notify::notify_events_type AP_Notify::events;
 
 #if CONFIG_HAL_BOARD == HAL_BOARD_PX4
-    AP_BoardLED boardled;
-    ToshibaLED_PX4 toshibaled;
+#if CONFIG_HAL_BOARD_SUBTYPE == HAL_BOARD_SUBTYPE_PX4_V4
+	PixRacerLED boardled;
+#else
+	AP_BoardLED boardled;
+#endif
+	ToshibaLED_PX4 toshibaled;
 
 #if AP_NOTIFY_SOLO_TONES == 1
     ToneAlarm_PX4_Solo tonealarm;

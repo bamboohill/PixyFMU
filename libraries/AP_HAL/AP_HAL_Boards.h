@@ -42,7 +42,7 @@
  */
 #define HAL_BOARD_SUBTYPE_PX4_V1         2000
 #define HAL_BOARD_SUBTYPE_PX4_V2         2001
-
+#define HAL_BOARD_SUBTYPE_PX4_V4         2002
 /**
    HAL VRBRAIN sub-types, starting at 4000
  */
@@ -158,12 +158,18 @@
 #ifdef CONFIG_ARCH_BOARD_PX4FMU_V1
 #define CONFIG_HAL_BOARD_SUBTYPE HAL_BOARD_SUBTYPE_PX4_V1
 #define HAL_STORAGE_SIZE            8192
-#else
+#endif
+#ifdef CONFIG_ARCH_BOARD_PX4FMU_V2
 #define CONFIG_HAL_BOARD_SUBTYPE HAL_BOARD_SUBTYPE_PX4_V2
 #define HAL_STORAGE_SIZE            16384
 #define HAL_HAVE_IMU_HEATER         1 // for Pixhawk2
 #define HAL_IMU_TEMP_DEFAULT       -1 // disabled
 #endif
+#ifdef CONFIG_ARCH_BOARD_PX4FMU_V4
+#define CONFIG_HAL_BOARD_SUBTYPE HAL_BOARD_SUBTYPE_PX4_V4
+#define HAL_STORAGE_SIZE 16384
+#endif
+
 #define HAL_GPIO_A_LED_PIN        27
 #define HAL_GPIO_B_LED_PIN        26
 #define HAL_GPIO_C_LED_PIN        25
