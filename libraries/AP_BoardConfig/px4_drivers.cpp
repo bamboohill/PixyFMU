@@ -440,18 +440,18 @@ void AP_BoardConfig::px4_start_fmuv4_sensors(void)
 {
 #if defined(CONFIG_ARCH_BOARD_PX4FMU_V4)
     printf("Starting FMUv4 sensors\n");
-    if (px4_start_driver(hmc5883_main, "hmc5883", "-C -T -S -R 2 start")) {
-        printf("Have SPI hmc5883\n");
+    if (px4_start_driver(hmc5883_main, "hmc5883", "-C -T -S -R 8 start")) {
+        printf("Have SPI hmc5883\n");//ROTATION_ROLL_180
     } else {
         printf("No SPI hmc5883\n");
     }
 
-    if (px4_start_driver(mpu6000_main, "mpu6000", "-R 2 -T 20608 start")) {
-        printf("Found ICM-20608 internal\n");
+    if (px4_start_driver(mpu6000_main, "mpu6000", "-R 8 -T 20608 start")) {
+        printf("Found ICM-20608 internal\n");//ROTATION_ROLL_180
     }
 
-    if (px4_start_driver(mpu9250_main, "mpu9250", "-R 2 start")) {
-        printf("Found mpu9250 internal\n");
+    if (px4_start_driver(mpu9250_main, "mpu9250", "-R 8 start")) {
+        printf("Found mpu9250 internal\n");//ROTATION_ROLL_180
     }
     px4.board_type.set_and_notify(PX4_BOARD_PIXRACER);
 #endif // CONFIG_ARCH_BOARD_PX4FMU_V4
